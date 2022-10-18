@@ -305,6 +305,8 @@ $(document).ready(function(){
                         $('#idcliente').val('');
                         $('#nom_cliente').val('');
                         $('#tel_cliente').val('');
+                        $('#cel_cliente').val('');
+                        $('#cor_cliente').val('');
                         $('#dir_cliente').val('');
                         //Mostrar boton agregar
                         $('.btn_new_cliente').slideDown();
@@ -313,6 +315,8 @@ $(document).ready(function(){
                         $('#idcliente').val(data.idcliente);
                         $('#nom_cliente').val(data.nombre);
                         $('#tel_cliente').val(data.telefono);
+                        $('#cel_cliente').val(data.celular);
+                        $('#cor_cliente').val(data.correo);
                         $('#dir_cliente').val(data.direccion);
                         //Ocultar boton agregar
                         $('.btn_new_cliente').slideUp();
@@ -320,6 +324,8 @@ $(document).ready(function(){
                         //Bloque campos
                         $('#nom_cliente').attr('disabled','disabled');
                         $('#tel_cliente').attr('disabled','disabled');
+                        $('#cel_cliente').attr('disabled','disabled');
+                        $('#cor_cliente').attr('disabled','disabled');
                         $('#dir_cliente').attr('disabled','disabled');
 
                         //Oculta boton guardar
@@ -338,6 +344,8 @@ $(document).ready(function(){
         e.preventDefault();
         $('#nom_cliente').removeAttr('disabled');
         $('#tel_cliente').removeAttr('disabled');
+        $('#cel_cliente').removeAttr('disabled');
+        $('#cor_cliente').removeAttr('disabled');
         $('#dir_cliente').removeAttr('disabled');
 
         $('#div_registro_cliente').slideDown();
@@ -361,6 +369,8 @@ $(document).ready(function(){
                     //Bloque campos
                     $('#nom_cliente').attr('disabled','disabled');
                     $('#tel_cliente').attr('disabled','disabled');
+                    $('#cel_cliente').attr('disabled','disabled');
+                    $('#cor_cliente').attr('disabled','disabled');
                     $('#dir_cliente').attr('disabled','disabled');
 
                     //Oculta boton agregar

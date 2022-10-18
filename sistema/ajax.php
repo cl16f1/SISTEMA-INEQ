@@ -315,11 +315,13 @@
 			$nit       = $_POST['nit_cliente'];
 			$nombre    = $_POST['nom_cliente'];
 			$telefono  = $_POST['tel_cliente'];
+			$celular  = $_POST['cel_cliente'];
+			$correo  = $_POST['cor_cliente'];
 			$direccion = $_POST['dir_cliente'];
 			$usuario_id = $_SESSION['idUser'];
 
-			$query_insert = mysqli_query($conection,"INSERT INTO cliente(nit,nombre,telefono,direccion,usuario_id)
-														VALUES('$nit','$nombre','$telefono','$direccion','$usuario_id')");
+			$query_insert = mysqli_query($conection,"INSERT INTO cliente(nit,nombre,telefono,celular,correo,direccion,usuario_id)
+														VALUES('$nit','$nombre','$telefono','$celular','$correo','$direccion','$usuario_id')");
 
 			if($query_insert){
 				$codCliente = mysqli_insert_id($conection);

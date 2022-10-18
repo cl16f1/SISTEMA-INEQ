@@ -107,17 +107,26 @@
 							<label>Nombre</label>
 							<input type="text" name="nom_cliente" id="nom_cliente" disabled required>
 						</div>
-						<div class="wd15">
+						<div class="wd20">
 							<label>Teléfono</label>
-							<input type="number" name="tel_cliente" id="tel_cliente" disabled required>
+							<input type="text" name="tel_cliente" id="tel_cliente" disabled>
+						</div>
+						<div class="wd20">
+							<label>Celular</label>
+							<input type="text" name="cel_cliente" id="cel_cliente" disabled>
+						</div>
+						<div class="wd40">
+							<label>Correo</label>
+							<input type="email" name="cor_cliente" id="cor_cliente" disabled>
 						</div>
 						<div class="wd40">
 							<label>Dirección</label>
-							<input type="text" name="dir_cliente" id="dir_cliente" disabled required>
+							<input type="text" name="dir_cliente" id="dir_cliente" disabled>
 						</div>
 						<div id="div_registro_cliente" class="wd100">
 							<button type="submit" class="btn_save"><i class="far fa-save fa-lg"></i> Guardar</button>
 						</div>
+						
 					</form>
 				</div>
 				<div class="datos_venta textcenter">
