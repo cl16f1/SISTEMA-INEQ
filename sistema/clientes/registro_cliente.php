@@ -5,6 +5,7 @@
 	$nit 		= '';
 	$nombre 	= '';
 	$telefono 	= '';
+	$celular 	= '';
 	$correo  	= '';
 	$direccion  = '';
 	$alert 		= '';
@@ -23,6 +24,7 @@ if(!empty($_POST))
 	$nit 		= strClean($_POST['nit']);
 	$nombre 	= ucwords(strClean($_POST['nombre']));
 	$telefono 	= intval($_POST['telefono']);
+	$celular 	= intval($_POST['celular']);
 	$correo  	= strtolower(strClean($_POST['correo']));
 	$direccion  = strClean($_POST['direccion']);
 	$usuario_id = intval($_SESSION['idUser']);
@@ -39,14 +41,15 @@ if(!empty($_POST))
 		if($result > 0){
 			$alert='<p class="msg_error">El número de NIT ya existe o el email, ingrese otro.</p>';
 		}else{
-			$query_insert = mysqli_query($conection,"INSERT INTO cliente(nit,nombre,telefono,correo,direccion,usuario_id)
-													VALUES('$nit','$nombre','$telefono','$correo','$direccion','$usuario_id')");
+			$query_insert = mysqli_query($conection,"INSERT INTO cliente(nit,nombre,telefono,celular,correo,direccion,usuario_id)
+													VALUES('$nit','$nombre','$telefono','$celular','$correo','$direccion','$usuario_id')");
 
 			if($query_insert){
 				$alert='<p class="msg_save">Cliente guardado correctamente.</p>';
 				$nit 		= '';
 				$nombre 	= '';
 				$telefono 	= '';
+				$celular 	= '';
 				$correo  	= '';
 				$direccion  = '';
 				$usuario_id = '';
@@ -70,16 +73,18 @@ if(!empty($_POST))
 				<div>
 					<p>Los campos con (*) son obligatorios.</p>
 				</div>
-				<label for="nit"><th><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?></th> (*)</label>
+				<label for="nit"><th><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?></th> o Cédula (*)</label>
 				<input type="text" name="nit" id="nit" placeholder="Identificación tributaria" value="<?= $nit;  ?>" required>
 				<label for="nombre">Nombre (*)</label>
 				<input type="text" name="nombre" id="nombre" placeholder="Nombre completo" value="<?= $nombre;  ?>" required>
-				<label for="telefono">Teléfono (*)</label>
-				<input type="number" name="telefono" id="telefono" placeholder="Teléfono" value="<?= $telefono;  ?>" required>
-				<label for="telefono">Correo electrónico</label>
+				<label for="telefono">Teléfono</label>
+				<input type="text" name="telefono" id="telefono" placeholder="Teléfono" value="<?= $telefono;  ?>">
+				<label for="celular">Celular</label>
+				<input type="text" name="celular" id="celular" placeholder="Celular" value="<?= $celular;  ?>">
+				<label for="correo">Correo electrónico</label>
 				<input type="email" name="correo" id="correo" placeholder="Correo electrónico" value="<?= $correo;  ?>" >
-				<label for="direccion">Dirección (*)</label>
-				<input type="text" name="direccion" id="direccion" placeholder="Dirección completa" value="<?= $direccion;  ?>" required>
+				<label for="direccion">Dirección </label>
+				<input type="text" name="direccion" id="direccion" placeholder="Dirección completa" value="<?= $direccion;  ?>">
 				<button type="submit" class="btn_save"><i class="far fa-save fa-lg"></i> Guardar Cliente</button>
 			</form>
 		</div>

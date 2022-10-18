@@ -19,7 +19,7 @@
 	$desde = ($pagina-1) * $por_pagina;
 	$total_paginas = ceil($total_registro / $por_pagina);
 
-	$query = mysqli_query($conection,"SELECT idcliente,nit,nombre,telefono,correo,correo, DATE_FORMAT(dateadd, '%d/%m/%Y') as fecha FROM cliente
+	$query = mysqli_query($conection,"SELECT idcliente,nit,nombre,telefono,celular,correo, DATE_FORMAT(dateadd, '%d/%m/%Y') as fecha FROM cliente
 									  WHERE estatus = 1 ORDER BY idcliente ASC LIMIT $desde,$por_pagina
 		");
 
@@ -57,9 +57,10 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?></th>
+				<th><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?> o Cédula</th>
 				<th>Nombre</th>
 				<th>Teléfono</th>
+				<th>Celular</th>
 				<th>Email</th>
 				<th>Fecha</th>
 				<th class="textright">Acciones</th>
@@ -81,6 +82,7 @@
 					<td><?php echo $nit; ?></td>
 					<td><?php echo $data["nombre"]; ?></td>
 					<td><?php echo ($data["telefono"] != 0 ) ? $data["telefono"] : '-'; ?></td>
+					<td><?php echo ($data["celular"] != 0 ) ? $data["celular"] : '-'; ?></td>
 					<td><?php echo $data["correo"]; ?></td>
 					<td><?php echo $data["fecha"]; ?></td>
 

@@ -568,7 +568,7 @@ table td{
     border: 1px solid #CCC;
     position: relative;
     cursor: pointer;
-    background: url(../images/uploads/user.png);
+    background: url("../img/user.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

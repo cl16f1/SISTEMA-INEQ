@@ -397,9 +397,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `nit` varchar(20) NOT NULL,
   `nombre` varchar(80) DEFAULT NULL,
   `telefono` int(11) DEFAULT NULL,
+  `celular` int(11) DEFAULT NULL,
   `correo` varchar(100) NOT NULL,
-  `clave` varchar(255) NOT NULL,
-  `cod_temp` varchar(200) NOT NULL,
   `direccion` text,
   `dateadd` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `usuario_id` int(11) NOT NULL,
@@ -412,9 +411,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idcliente`, `nit`, `nombre`, `telefono`, `correo`, `clave`, `cod_temp`, `direccion`, `dateadd`, `usuario_id`, `estatus`) VALUES
-(1, 'CF', 'Consumidor Final', NULL, '', '', '', 'Ciudad', '2020-10-27 23:51:13', 1, 1),
-(2, '123456', 'Francisco Arana', 45678974, 'ff@info.com', '', '', 'Ciudad', '2020-10-28 00:03:25', 1, 1);
+INSERT INTO `cliente` (`idcliente`, `nit`, `nombre`, `telefono`,`celular`, `correo`,`direccion`, `dateadd`, `usuario_id`, `estatus`) VALUES
+(1, 'CF', 'Consumidor Final', NULL,'', '','Ciudad', '2020-10-27 23:51:13', 1, 1),
+(2, '123456', 'Francisco Arana', 45678974,'', 'ff@info.com','Ciudad', '2020-10-28 00:03:25', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -477,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `configuracion` (
 --
 
 INSERT INTO `configuracion` (`id`, `nit`, `nombre`, `razon_social`, `logotipo`, `telefono`, `whatsapp`, `email`, `direccion`, `impuesto`, `moneda`, `simbolo_moneda`, `zona_horaria`, `sitio_web`, `email_factura`, `email_pedidos`, `facebook`, `instagram`, `identificacion_cliente`, `identificacion_tributaria`, `separador_millares`, `separador_decimales`) VALUES
-(1, '801808', 'Abel OSH', 'Sociedad Anónima', 'logo_empresa.jpg', '78645898', '45321026', 'info@abelosh.com', 'Chimaltenango, Guatemala', 'IVA', 'QUETZALES', 'Q', 'America/Guatemala', 'https://abelosh.com', 'info@abelosh.com', 'info@abelosh.com', 'https://facebook.com/febel24', 'https://instagram.com/febel24', 'DPI', 'NIT', ',', '.');
+(1, '801808', 'Abel OSH', 'Sociedad Anónima', 'logo_empresa.jpg', '78645898', '45321026', 'info@abelosh.com', 'Chimaltenango, Guatemala', 'IVA', 'DOLARES', '$', 'America/Guayaquil', 'https://abelosh.com', 'info@abelosh.com', 'info@abelosh.com', 'https://facebook.com/febel24', 'https://instagram.com/febel24', 'CC', 'RUC', ',', '.');
 
 -- --------------------------------------------------------
 
