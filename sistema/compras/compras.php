@@ -76,7 +76,7 @@
 				<th>No. Documento</th>
 				<th>Proveedor</th>
 				<th class="textcenter">Tipo de pago</th>
-				<th class="textright">Total</th>
+				<th class="textcenter">Total</th>
 				<th class="textcenter">Estado</th>
 				<th class="textcenter">Acciones</th>
 			</tr>
@@ -96,7 +96,7 @@
 					<td><?php echo $data["no_documento"]; ?></td>
 					<td><?php echo $data["proveedor"]; ?></td>
 					<td class="textcenter"><?php echo $data['tipo_pago']; ?></td>
-					<td class="textright totalfactura"><span><?= SIMBOLO_MONEDA ?>.</span><?php echo formatCant($data["total"]); ?></td>
+					<td class="totalfactura"><span><?= SIMBOLO_MONEDA ?></span><?php echo formatCant($data["total"]); ?></td>
 					<td class="estado textcenter"><?php echo $estado; ?></td>
 					<td class="textcenter">
 						<button title="Ver compra" class="btn_view view_compra" type="button" onClick="viewCompra(<?php echo $data["id_compra"];?>)" ><i class="fas fa-eye"></i></button>

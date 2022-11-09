@@ -90,7 +90,7 @@
 				<th>Vendedor</th>
 				<th class="textcenter">Estado</th>
 				<th class="textcenter">Tipo de pago</th>
-				<th class="textright">Total Factura</th>
+				<th class="textcenter">Total Factura</th>
 				<th class="textcenter">Acciones</th>
 			</tr>
 		<?php
@@ -117,7 +117,7 @@
 					<td><?php echo $data["vendedor"]; ?></td>
 					<td class="estado textcenter"><?php echo $estado; ?></td>
 					<td class="textcenter"><?php echo $data['tipo_pago']; ?></td>
-					<td class="textright totalfactura"><span><?= SIMBOLO_MONEDA ?>.</span><?php echo formatCant($data["totalfactura"]); ?></td>
+					<td class="totalfactura"><span><?= SIMBOLO_MONEDA ?></span><?php echo formatCant($data["totalfactura"]); ?></td>
 
 					<td class="textright">
 						<div class="div_acciones">

@@ -840,13 +840,9 @@ table td{
 }
 
 .totalfactura{
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flex;
-	display: -o-flex;
-	display: flex;
-	justify-content: space-between;
+	text-align: center;
 }
+
 .div_acciones{
 	display: -webkit-flex;
 	display: -moz-flex;

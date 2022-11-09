@@ -91,17 +91,17 @@
 	<div class="containerTable">
 		<table id="tblProductos">
 			<tr>
-				<th>Código</th>
-				<th>Producto</th>
-				<th>Ubicación</th>
+				<th class="textcenter">Código</th>
+				<th class="textcenter" >Producto</th>
+				<th class="textcenter">Ubicación</th>
 				<th class="textcenter">Presentación</th>
-				<th>Categoría</th>
-				<th>Marca</th>
-				<th class="textright" width="128px">Precio</th>
+				<th class="textcenter">Categoría</th>
+				<th class="textcenter">Marca</th>
+				<th class="textcenter">Precio</th>
 				<th class="textcenter">Existencia</th>
 				<th class="textcenter">Estado</th>
 				<!-- <th class="textcenter">Foto</th> -->
-				<th class="textright">Acciones</th>
+				<th class="textcenter">Acciones</th>
 			</tr>
 		<?php
 			if($result > 0){
@@ -123,16 +123,16 @@
 						$bkRowClass = 'agotado';
 					}
 			?>
-				<tr class="row<?php echo $data["codproducto"]; ?>" id="row_<?php echo $data["codproducto"]; ?>">
+				<tr class="textcenter row<?php echo $data["codproducto"]; ?>" id="row_<?php echo $data["codproducto"]; ?>">
 					<td ><?php echo $data["codebar"]; ?></td>
-					<td class="nameProduct"><?php echo $data["producto"]; ?> <div class="descriptionProduct"><?php echo $data["descripcion"]; ?></div></td>
+					<td class="textcenter"><?php echo $data["producto"]; ?> <div class="descriptionProduct"><?php echo $data["descripcion"]; ?></div></td>
 					<td class="textcenter"><?php echo $data["ubicacion"]; ?></td>
 					<td class="textcenter"><?php echo $data["presentacion"]; ?></td>
 					<td ><?php echo $data["categoria"]; ?></td>
 					<td class="textcenter"><?php echo $data["marca"]; ?></td>
-					<td class="celPrecio textright"><?php echo SIMBOLO_MONEDA.'. '.formatCant($data["precio"]); ?></td>
-					<td class="celExistencia textcenter"><?php echo $data["existencia"]; ?></td>
-					<td class="celEstado <?= $bkRowClass; ?> textcenter" style="width: 50px;"><?php echo $estadoExistencia; ?></td>
+					<td class="textcenter"><?php echo SIMBOLO_MONEDA.formatCant($data["precio"]); ?></td>
+					<td class="textcenter"><?php echo $data["existencia"]; ?></td>
+					<td class="<?= $bkRowClass; ?> textcenter" style="width: 50px;"><?php echo $estadoExistencia; ?></td>
 					<!-- <td class="img_producto textcenter"><img src="<?php echo $foto; ?>" alt="<?php echo $data["descripcion"]; ?>"></td> -->
 					<td class="textright">
 						<div class="div_acciones">
