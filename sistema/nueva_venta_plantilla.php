@@ -27,8 +27,8 @@
 				<input type="hidden" name="action" value="addCliente" >
 				<input type="hidden" id="idcliente" name="idcliente" value="" required>
 				<div class="wd30">
-					<label>Nit</label>
-					<input type="text" name="nit_cliente" id="nit_cliente">
+					<label>Ruc</label>
+					<input type="text" name="ruc_cliente" id="ruc_cliente">
 				</div>
 				<div class="wd30">
 					<label>Nombre</label>

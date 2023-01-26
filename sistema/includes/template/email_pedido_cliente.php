@@ -94,7 +94,7 @@
 			<tr>
 				<td>
 					<div class="x_sgwrap x_title_blue">
-						<p><?= NOMBRE_EMPESA; ?></p>
+						<p><?= NOMBRE_EMPRESA; ?></p>
 					</div>
 				</td>
 			</tr>

@@ -17,7 +17,7 @@
 	}else{
 		$id_compra = intval($_REQUEST['cmp']);
 		$anulada = '';
-		$query = mysqli_query($conection,"SELECT c.id_compra,DATE_FORMAT(c.fecha_compra, '%d/%m/%Y') as fecha,d.documento,c.no_documento,c.proveedor_id,c.serie,p.proveedor,p.contacto,p.nit,p.telefono,p.direccion,tp.tipo_pago,c.total,c.estatus
+		$query = mysqli_query($conection,"SELECT c.id_compra,DATE_FORMAT(c.fecha_compra, '%d/%m/%Y') as fecha,d.documento,c.no_documento,c.proveedor_id,c.serie,p.proveedor,p.contacto,p.ruc,p.telefono,p.direccion,tp.tipo_pago,c.total,c.estatus
 												FROM compra c
 												INNER JOIN tipo_documento d
 												ON c.documento_id = d.id_tipodocumento

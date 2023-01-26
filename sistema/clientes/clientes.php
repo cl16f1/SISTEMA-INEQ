@@ -19,7 +19,7 @@
 	$desde = ($pagina-1) * $por_pagina;
 	$total_paginas = ceil($total_registro / $por_pagina);
 
-	$query = mysqli_query($conection,"SELECT idcliente,nit,nombre,telefono,celular,correo, DATE_FORMAT(dateadd, '%d/%m/%Y') as fecha FROM cliente
+	$query = mysqli_query($conection,"SELECT idcliente,ruc,nombre,telefono,celular,correo, DATE_FORMAT(dateadd, '%d/%m/%Y') as fecha FROM cliente
 									  WHERE estatus = 1 ORDER BY idcliente ASC LIMIT $desde,$por_pagina
 		");
 
@@ -70,16 +70,16 @@
 			if($result > 0){
 
 				while ($data = mysqli_fetch_array($query)) {
-					if($data["nit"] == 0)
+					if($data["ruc"] == 0)
 					{
-						$nit = 'C/F';
+						$ruc = 'C/F';
 					}else{
-						$nit = $data["nit"];
+						$ruc = $data["ruc"];
 					}
 			?>
 				<tr id="item_<?php echo $data["idcliente"]; ?>">
 					<td><?php echo $data["idcliente"]; ?></td>
-					<td><?php echo $nit; ?></td>
+					<td><?php echo $ruc; ?></td>
 					<td><?php echo $data["nombre"]; ?></td>
 					<td><?php echo ($data["telefono"] != 0 ) ? $data["telefono"] : '-'; ?></td>
 					<td><?php echo ($data["celular"] != 0 ) ? $data["celular"] : '-'; ?></td>

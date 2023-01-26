@@ -101,7 +101,7 @@
 						<input type="hidden" id="idcliente" name="idcliente" value="" required>
 						<div class="wd15">
 							<label><?php echo IDENTIFICACION_TRIBUTARIA; ?></label>
-							<input type="text" name="nit_cliente" id="nit_cliente">
+							<input type="text" name="ruc_cliente" id="ruc_cliente">
 						</div>
 						<div class="wd35">
 							<label>Nombre</label>

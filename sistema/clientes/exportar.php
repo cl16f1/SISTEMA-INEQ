@@ -22,7 +22,7 @@
         	$filtro = $_POST['exportFilter'];
         	$data_query = mysqli_query($conection,$filtro);
         }else{
-	        $data_query = mysqli_query($conection,"SELECT nit,
+	        $data_query = mysqli_query($conection,"SELECT ruc,
 	        											nombre,
 	        											telefono,
 	        											correo,
@@ -71,7 +71,7 @@
 ?>
 			<tr>
                 <td <?php echo $style_row_data;  ?> > <?php echo $i;  ?> </td>
-                <td <?php echo $style_row_data;  ?> > <?php echo $data['nit'];  ?> </td>
+                <td <?php echo $style_row_data;  ?> > <?php echo $data['ruc'];  ?> </td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data['nombre'];  ?> </td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data['telefono'];  ?> </td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data['correo'];  ?> </td>

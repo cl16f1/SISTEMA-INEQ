@@ -9,7 +9,7 @@
 	//Paginador
 	$sql_registe = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM cliente
 														WHERE ( idcliente LIKE '%$busqueda%' OR
-																nit LIKE '%$busqueda%' OR
+																ruc LIKE '%$busqueda%' OR
 																nombre LIKE '%$busqueda%' OR
 																telefono LIKE '%$busqueda%' OR
 																correo LIKE '%$busqueda%'
@@ -32,7 +32,7 @@
 	$total_paginas = ceil($total_registro / $por_pagina);
 
 	$queryExport = "SELECT idcliente,
-							nit,
+							ruc,
 							nombre,
 							telefono,
 							correo,
@@ -40,13 +40,13 @@
 							DATE_FORMAT(dateadd, '%d/%m/%Y') as fecha_registro,
 							estatus FROM cliente WHERE
 								( idcliente LIKE '%$busqueda%' OR
-									nit LIKE '%$busqueda%' OR
+									ruc LIKE '%$busqueda%' OR
 									nombre LIKE '%$busqueda%' OR
 									telefono LIKE '%$busqueda%' OR
 									correo LIKE  '%$busqueda%' ) AND
 							estatus = 1 ORDER BY idcliente ";
 	$queryFiltro = "SELECT idcliente,
-							nit,
+							ruc,
 							nombre,
 							telefono,
 							correo,
@@ -54,7 +54,7 @@
 							DATE_FORMAT(dateadd, '%d/%m/%Y') as fecha_registro,
 							estatus FROM cliente WHERE
 								( idcliente LIKE '%$busqueda%' OR
-									nit LIKE '%$busqueda%' OR
+									ruc LIKE '%$busqueda%' OR
 									nombre LIKE '%$busqueda%' OR
 									telefono LIKE '%$busqueda%' OR
 									correo LIKE  '%$busqueda%' )
@@ -110,7 +110,7 @@
 			?>
 				<tr id="item_<?php echo $data["idcliente"]; ?>">
 					<td><?php echo $data["idcliente"]; ?></td>
-					<td><?php echo $data["nit"]; ?></td>
+					<td><?php echo $data["ruc"]; ?></td>
 					<td><?php echo $data["nombre"]; ?></td>
 					<td><?php echo ($data["telefono"] != 0) ? $data["telefono"] : '-'; ?></td>
 					<td><?php echo $data["correo"]; ?></td>

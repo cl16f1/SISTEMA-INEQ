@@ -152,10 +152,10 @@
 				<img class="logo" src="<?php echo $base_url.'/sistema/img/'.LOGO_EMPRESA; ?>" alt="logo">
 			</td>
 			<td class="info_empresa">
-					<span class="h2"><?php echo NOMBRE_EMPESA; ?></span>
-					<p><?php echo RAZONSOCIAL_EMPESA; ?></p>
+					<span class="h2"><?php echo NOMBRE_EMPRESA; ?></span>
+					<p><?php echo RAZONSOCIAL_EMPRESA; ?></p>
 					<p><?php echo DIRECCION_EMPRESA; ?></p>
-					<p><?php echo IDENTIFICACION_TRIBUTARIA.': '.NIT_EMPESA; ?></p>
+					<p><?php echo IDENTIFICACION_TRIBUTARIA.': '.RUC_EMPRESA; ?></p>
 					<p>Teléfono: <?php echo TELEFONO_EMPRESA; ?></p>
 					<p>Email: <?php echo EMAIL_EMPRESA; ?></p>
 					<p>Web: <?php echo WEB_EMPRESA; ?></p>
@@ -178,7 +178,7 @@
 					<div class="h3">Cliente</div>
 					<table class="datos_cliente">
 						<tr>
-							<td><p><strong><?php echo IDENTIFICACION_TRIBUTARIA ?>:</strong> <?php echo $pedido['nit']; ?></p></td>
+							<td><p><strong><?php echo IDENTIFICACION_TRIBUTARIA ?>:</strong> <?php echo $pedido['ruc']; ?></p></td>
 							<td><p><strong>Teléfono:</strong> <?php echo $pedido['telefono']; ?></p></td>
 
 						</tr>

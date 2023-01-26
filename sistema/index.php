@@ -124,13 +124,13 @@
 										<h3>Facturación</h3>
 										<div>
 											<div class="wd50 wdsm100">
-												<label>Nombre:</label>  <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de la empresa" value="<?= NOMBRE_EMPESA ?>" required>
+												<label>Nombre:</label>  <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre de la empresa" value="<?= NOMBRE_EMPRESA ?>" required>
 											</div>
 											<div class="wd50 wdsm100">
-												<label>Razon social:</label> <input type="text" name="txtRSocial" id="txtRSocial" placeholder="Razon social" value="<?= RAZONSOCIAL_EMPESA ?>">
+												<label>Razon social:</label> <input type="text" name="txtRSocial" id="txtRSocial" placeholder="Razon social" value="<?= RAZONSOCIAL_EMPRESA ?>">
 											</div>
 											<div class="wd50 wdsm100">
-												<label>Nit:</label><input type="text" name="txtNit" id="txtNit" placeholder="Nit de la empresa" value="<?= NIT_EMPESA ?>" required>
+												<label>Ruc:</label><input type="text" name="txtRuc" id="txtRuc" placeholder="Ruc de la empresa" value="<?= RUC_EMPRESA ?>" required>
 											</div>
 											<div class="wd50 wdsm100">
 												<label>Teléfono:</label> <input type="text" name="txtTelEmpresa" id="txtTelEmpresa" placeholder="Número de teléfono" value="<?= TELEFONO_EMPRESA ?>" required>
@@ -187,7 +187,7 @@
 										</div>
 										<div>
 											<div class="wd20 wdsm100">
-												<label>Identificacion tributaria:</label> <input type="text" name="txtIdentificacionTributaria" id="txtIdentificacionTributaria" placeholder="Ejemplo: NIT, NIF ..." value="<?= IDENTIFICACION_TRIBUTARIA ?>" required>
+												<label>Identificacion tributaria:</label> <input type="text" name="txtIdentificacionTributaria" id="txtIdentificacionTributaria" placeholder="Ejemplo: RUC, CC ..." value="<?= IDENTIFICACION_TRIBUTARIA ?>" required>
 											</div>
 											<div class="wd20 wdsm100">
 												<label>Separador millares:</label>

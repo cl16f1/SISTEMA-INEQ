@@ -7,7 +7,7 @@
 	}
 
 	include "../../conexion.php";
-	$nit   = '';
+	$ruc   = '';
 	$proveedor   = '';
 	$contacto    = '';
 	$telefono    = '';
@@ -26,7 +26,7 @@
 <?php 
 if(!empty($_POST))
 {
-	$nit   = strClean($_POST['nit']);
+	$ruc   = strClean($_POST['ruc']);
 	$proveedor   = ucwords(strClean($_POST['proveedor']));
 	$contacto    = ucwords(strClean($_POST['contacto']));
 	$telefono    = intval($_POST['telefono']);
@@ -34,16 +34,16 @@ if(!empty($_POST))
 	$direccion   = strClean($_POST['direccion']);
 	$usuario_id  = intval($_SESSION['idUser']);
 
-	if(empty($_POST['nit']) || empty($_POST['proveedor']) || empty($_POST['contacto']) || empty($_POST['telefono']) || empty($_POST['correo']) || empty($_POST['direccion']))
+	if(empty($_POST['ruc']) || empty($_POST['proveedor']) || empty($_POST['contacto']) || empty($_POST['telefono']) || empty($_POST['correo']) || empty($_POST['direccion']))
 	{
 		$alert='<p class="msg_error">Todos los campos son obligatorios.</p>';
 	}else{
-		$query_insert = mysqli_query($conection,"INSERT INTO proveedor(nit,proveedor,contacto,telefono,correo,direccion,usuario_id)
-													VALUES('$nit','$proveedor','$contacto','$telefono','$correo','$direccion','$usuario_id')");
+		$query_insert = mysqli_query($conection,"INSERT INTO proveedor(ruc,proveedor,contacto,telefono,correo,direccion,usuario_id)
+													VALUES('$ruc','$proveedor','$contacto','$telefono','$correo','$direccion','$usuario_id')");
 
 		if($query_insert){
 			$alert='<p class="msg_save">Proveedor guardado correctamente.</p>';
-			$nit   		 = '';
+			$ruc   		 = '';
 			$proveedor   = '';
 			$contacto    = '';
 			$telefono    = '';
@@ -65,8 +65,8 @@ if(!empty($_POST))
 
 			<form action="" method="post" class="form">
 				<div class="wd100">
-					<label for="nit"><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?></label>
-					<input type="text" name="nit" id="nit" value="<?= $nit;  ?>" placeholder="Identificación tributaria" required>
+					<label for="ruc"><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?></label>
+					<input type="text" name="ruc" id="ruc" value="<?= $ruc;  ?>" placeholder="Identificación tributaria" required>
 				</div>
 				<div class="wd100">	
 					<label for="proveedor">Proveedor</label>

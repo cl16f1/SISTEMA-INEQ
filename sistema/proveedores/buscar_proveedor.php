@@ -14,7 +14,7 @@
 	//Paginador
 	$sql_registe = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM proveedor
 														WHERE ( codproveedor LIKE '%$busqueda%' OR
-																nit LIKE '%$busqueda%' OR
+																ruc LIKE '%$busqueda%' OR
 																proveedor LIKE '%$busqueda%' OR
 																contacto LIKE '%$busqueda%' OR
 																telefono LIKE '%$busqueda%' OR
@@ -38,7 +38,7 @@
 	$total_paginas = ceil($total_registro / $por_pagina);
 
 	$queryExport = "SELECT codproveedor,
-						nit,
+						ruc,
 						proveedor,
 						contacto,
 						telefono,
@@ -47,7 +47,7 @@
 						DATE_FORMAT(date_add, '%d/%m/%Y') as fecha_registro,
 						estatus FROM proveedor WHERE
 						( codproveedor LIKE '%$busqueda%' OR
-							nit LIKE '%$busqueda%' OR
+							ruc LIKE '%$busqueda%' OR
 							proveedor LIKE '%$busqueda%' OR
 							contacto LIKE '%$busqueda%' OR
 							telefono LIKE '%$busqueda%' OR
@@ -55,7 +55,7 @@
 						estatus = 1 ORDER BY codproveedor ASC";
 
 	$queryFiltro = "SELECT codproveedor,
-						nit,
+						ruc,
 						proveedor,
 						contacto,
 						telefono,
@@ -64,7 +64,7 @@
 						DATE_FORMAT(date_add, '%d/%m/%Y') as fecha_registro,
 						estatus FROM proveedor WHERE
 						( codproveedor LIKE '%$busqueda%' OR
-							nit LIKE '%$busqueda%' OR
+							ruc LIKE '%$busqueda%' OR
 							proveedor LIKE '%$busqueda%' OR
 							contacto LIKE '%$busqueda%' OR
 							telefono LIKE '%$busqueda%' OR
@@ -119,7 +119,7 @@
 			?>
 				<tr id="item_<?php echo $data["codproveedor"]; ?>">
 					<td><?php echo $data["codproveedor"]; ?></td>
-					<td><?php echo $data["nit"]; ?></td>
+					<td><?php echo $data["ruc"]; ?></td>
 					<td><?php echo $data["proveedor"]; ?></td>
 					<td><?php echo $data["contacto"]; ?></td>
 					<td><?php echo $data["telefono"]; ?></td>

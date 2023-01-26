@@ -24,7 +24,7 @@
         	$data_query = mysqli_query($conection,$filtro);
         }else{
 	        $data_query = mysqli_query($conection,"SELECT 
-                                                        nit,
+                                                        ruc,
                                                         proveedor,
 	        											contacto,
 	        											telefono,
@@ -73,7 +73,7 @@
 ?>
 				<tr>
                     <td <?php echo $style_row_data;  ?> > <?php echo $i;  ?> </td>
-                    <td <?php echo $style_row_data;  ?> > <?php echo $data['nit'];  ?> </td>
+                    <td <?php echo $style_row_data;  ?> > <?php echo $data['ruc'];  ?> </td>
                     <td <?php echo $style_row_data;  ?> > <?php echo $data['proveedor'];  ?> </td>
                     <td <?php echo $style_row_data;  ?> > <?php echo $data['contacto'];  ?> </td>
                     <td <?php echo $style_row_data;  ?> > <?php echo $data['telefono'];  ?> </td>

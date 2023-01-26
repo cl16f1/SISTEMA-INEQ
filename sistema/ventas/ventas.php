@@ -25,7 +25,7 @@
 											 f.codcliente,
 											 f.estatus,
 											 u.nombre as vendedor,
-											 cl.nit,
+											 cl.ruc,
 											 cl.correo,
 											 cl.nombre as cliente,
 											 tp.tipo_pago,
@@ -112,7 +112,7 @@
 					<td><?php echo $data["nofactura"]; ?></td>
 					<td><?php echo $data["prefijo"].'-'.formatFactura($data["factura_serie"],$data["ceros"]); ?></td>
 					<td><?php echo $data["fecha"].' - '.$data["hora"]; ?></td>
-					<td><?php echo $data["nit"]; ?></td>
+					<td><?php echo $data["ruc"]; ?></td>
 					<td><?php echo $data["cliente"]; ?></td>
 					<td><?php echo $data["vendedor"]; ?></td>
 					<td class="estado textcenter"><?php echo $estado; ?></td>

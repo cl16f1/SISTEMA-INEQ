@@ -50,10 +50,10 @@
 				<img style="width: 70px; margin: auto;" class="logo" src="<?php echo $base_url.'/sistema/img/'.LOGO_EMPRESA; ?>" alt="logo">				
 			</td>
 		</tr>
-		<tr><td style="text-align: center; font-size: 15px; padding: 0; font-weight: bold;"><?php echo NOMBRE_EMPESA; ?></td></tr>
-		<tr><td style="text-align: center; font-size: 12px; padding: 0; "><?php echo RAZONSOCIAL_EMPESA; ?></td></tr>
+		<tr><td style="text-align: center; font-size: 15px; padding: 0; font-weight: bold;"><?php echo NOMBRE_EMPRESA; ?></td></tr>
+		<tr><td style="text-align: center; font-size: 12px; padding: 0; "><?php echo RAZONSOCIAL_EMPRESA; ?></td></tr>
 		<tr><td style="text-align: center; font-size: 12px; padding: 0; "><?php echo DIRECCION_EMPRESA; ?></td></tr>
-		<tr><td style="text-align: center; font-size: 12px; padding: 0; "><?php echo IDENTIFICACION_TRIBUTARIA.': '.NIT_EMPESA; ?></td></tr>
+		<tr><td style="text-align: center; font-size: 12px; padding: 0; "><?php echo IDENTIFICACION_TRIBUTARIA.': '.RUC_EMPRESA; ?></td></tr>
 		<tr><td style="text-align: center; font-size: 12px; padding: 0; ">Teléfono: <?php echo TELEFONO_EMPRESA; ?></td></tr>
 		<tr><td style="text-align: center; font-size: 12px; padding: 0; ">Email: <?php echo EMAIL_EMPRESA; ?></td></tr>
 		<tr><td style="text-align: center; font-size: 12px; padding: 0; ">Web: <?php echo WEB_EMPRESA; ?></td></tr>
@@ -84,7 +84,7 @@
 		</tr>
 		<tr><td style="text-align: center; font-size: 12px; ">DATOS DEL CLIENTE</td></tr>
 		<tr><td ><hr></td></tr>
-		<tr><td style="font-size: 12px; padding: 0; "><?php echo IDENTIFICACION_TRIBUTARIA.': '.$factura['nit']; ?></td></tr>
+		<tr><td style="font-size: 12px; padding: 0; "><?php echo IDENTIFICACION_TRIBUTARIA.': '.$factura['ruc']; ?></td></tr>
 		<tr><td style="font-size: 12px; padding: 0; ">Nombre: <?php echo $factura['nombre']; ?></td></tr>
 		<tr><td style="font-size: 12px; padding: 0; ">Dirección: <?php echo $factura['direccion']; ?></td></tr>
 		<tr><td style="font-size: 12px; padding: 0; ">Tipo de pago: <?php echo $factura['tipo_pago']; ?></td></tr>

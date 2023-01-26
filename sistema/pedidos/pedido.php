@@ -21,7 +21,7 @@
 		$arrPedido = explode('_',$strPedido);
 		$pedido_id = $arrPedido[1];*/
 		$imgEstado = '';
-		$query = mysqli_query($conection,"SELECT p.id_pedido, p.fecha, tp.tipo_pago, p.total, p.estatus, c.id_contacto, c.nombre, c.telefono, c.email, c.nit, c.nombre_fiscal, c.direccion
+		$query = mysqli_query($conection,"SELECT p.id_pedido, p.fecha, tp.tipo_pago, p.total, p.estatus, c.id_contacto, c.nombre, c.telefono, c.email, c.ruc, c.nombre_fiscal, c.direccion
 											FROM pedido p
 											INNER JOIN contacto_pedido c
 											ON p.contacto_id = c.id_contacto

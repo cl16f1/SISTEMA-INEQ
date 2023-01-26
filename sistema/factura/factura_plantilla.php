@@ -41,7 +41,7 @@
 					<span class="h3">Cliente</span>
 					<table class="datos_cliente">
 						<tr>
-							<td><label>Nit:</label><p>54895468</p></td>
+							<td><label>Ruc:</label><p>54895468</p></td>
 							<td><label>Teléfono:</label> <p>7854526</p></td>
 							
 						</tr>

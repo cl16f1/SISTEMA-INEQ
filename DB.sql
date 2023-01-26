@@ -394,10 +394,10 @@ INSERT INTO `categoria_producto` (`id`, `categoria_id`, `producto_id`) VALUES
 DROP TABLE IF EXISTS `cliente`;
 CREATE TABLE IF NOT EXISTS `cliente` (
   `idcliente` int(11) NOT NULL AUTO_INCREMENT,
-  `nit` varchar(20) NOT NULL,
+  `ruc` varchar(20) NOT NULL,
   `nombre` varchar(80) DEFAULT NULL,
-  `telefono` int(11) DEFAULT NULL,
-  `celular` int(11) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
+  `celular` varchar(10) DEFAULT NULL,
   `correo` varchar(100) NOT NULL,
   `direccion` text,
   `dateadd` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -411,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idcliente`, `nit`, `nombre`, `telefono`,`celular`, `correo`,`direccion`, `dateadd`, `usuario_id`, `estatus`) VALUES
+INSERT INTO `cliente` (`idcliente`, `ruc`, `nombre`, `telefono`,`celular`, `correo`,`direccion`, `dateadd`, `usuario_id`, `estatus`) VALUES
 (1, 'CF', 'Consumidor Final', NULL,'', '','Ciudad', '2020-10-27 23:51:13', 1, 1),
 (2, '123456', 'Francisco Arana', 45678974,'', 'ff@info.com','Ciudad', '2020-10-28 00:03:25', 1, 1);
 
@@ -447,11 +447,11 @@ CREATE TABLE IF NOT EXISTS `compra` (
 DROP TABLE IF EXISTS `configuracion`;
 CREATE TABLE IF NOT EXISTS `configuracion` (
   `id` bigint(20) NOT NULL,
-  `nit` varchar(20) NOT NULL,
+  `ruc` varchar(20) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `razon_social` varchar(200) NOT NULL,
   `logotipo` varchar(255) NOT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
   `whatsapp` varchar(20) DEFAULT NULL,
   `email` varchar(200) NOT NULL,
   `direccion` text NOT NULL,
@@ -475,7 +475,7 @@ CREATE TABLE IF NOT EXISTS `configuracion` (
 -- Volcado de datos para la tabla `configuracion`
 --
 
-INSERT INTO `configuracion` (`id`, `nit`, `nombre`, `razon_social`, `logotipo`, `telefono`, `whatsapp`, `email`, `direccion`, `impuesto`, `moneda`, `simbolo_moneda`, `zona_horaria`, `sitio_web`, `email_factura`, `email_pedidos`, `facebook`, `instagram`, `identificacion_cliente`, `identificacion_tributaria`, `separador_millares`, `separador_decimales`) VALUES
+INSERT INTO `configuracion` (`id`, `ruc`, `nombre`, `razon_social`, `logotipo`, `telefono`, `whatsapp`, `email`, `direccion`, `impuesto`, `moneda`, `simbolo_moneda`, `zona_horaria`, `sitio_web`, `email_factura`, `email_pedidos`, `facebook`, `instagram`, `identificacion_cliente`, `identificacion_tributaria`, `separador_millares`, `separador_decimales`) VALUES
 (1, '801808', 'Abel OSH', 'Sociedad Anónima', 'logo_empresa.jpg', '78645898', '45321026', 'info@abelosh.com', 'Chimaltenango, Guatemala', 'IVA', 'DOLARES', '$', 'America/Guayaquil', 'https://abelosh.com', 'info@abelosh.com', 'info@abelosh.com', 'https://facebook.com/febel24', 'https://instagram.com/febel24', 'CC', 'RUC', ',', '.');
 
 -- --------------------------------------------------------
@@ -488,9 +488,9 @@ DROP TABLE IF EXISTS `contacto_pedido`;
 CREATE TABLE IF NOT EXISTS `contacto_pedido` (
   `id_contacto` bigint(20) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(80) NOT NULL,
-  `telefono` bigint(20) NOT NULL,
+  `telefono` varchar(10) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `nit` varchar(20) NOT NULL,
+  `ruc` varchar(20) NOT NULL,
   `nombre_fiscal` varchar(80) NOT NULL,
   `direccion` text NOT NULL,
   PRIMARY KEY (`id_contacto`)
@@ -803,10 +803,10 @@ INSERT INTO `producto` (`codproducto`, `codebar`, `producto`, `descripcion`, `ca
 DROP TABLE IF EXISTS `proveedor`;
 CREATE TABLE IF NOT EXISTS `proveedor` (
   `codproveedor` int(11) NOT NULL AUTO_INCREMENT,
-  `nit` varchar(20) NOT NULL,
+  `ruc` varchar(20) NOT NULL,
   `proveedor` varchar(100) DEFAULT NULL,
   `contacto` varchar(100) DEFAULT NULL,
-  `telefono` bigint(11) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
   `correo` varchar(100) NOT NULL,
   `direccion` text,
   `date_add` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -820,7 +820,7 @@ CREATE TABLE IF NOT EXISTS `proveedor` (
 -- Volcado de datos para la tabla `proveedor`
 --
 
-INSERT INTO `proveedor` (`codproveedor`, `nit`, `proveedor`, `contacto`, `telefono`, `correo`, `direccion`, `date_add`, `usuario_id`, `estatus`) VALUES
+INSERT INTO `proveedor` (`codproveedor`, `ruc`, `proveedor`, `contacto`, `telefono`, `correo`, `direccion`, `date_add`, `usuario_id`, `estatus`) VALUES
 (1, '123456', 'Productos SA', 'Abel', 12345645, 'info@info.com', 'Ciudad', '2020-10-27 23:52:00', 1, 1);
 
 -- --------------------------------------------------------
@@ -937,7 +937,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `dpi` varchar(20) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `telefono` bigint(20) NOT NULL,
+  `telefono` varchar(10) NOT NULL,
   `correo` varchar(100) DEFAULT NULL,
   `usuario` varchar(15) DEFAULT NULL,
   `clave` varchar(100) DEFAULT NULL,

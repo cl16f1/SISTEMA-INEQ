@@ -22,7 +22,7 @@
 		$anulada = '';
 		$query = mysqli_query($conection,"SELECT f.nofactura, f.factura_serie, DATE_FORMAT(f.fecha, '%d-%m-%Y') as fecha, DATE_FORMAT(f.dateadd,'%H:%i:%s') as  hora, f.codcliente, f.descuento, f.efectivo, f.estatus, s.cai, s.prefijo,s.ceros, DATE_FORMAT(s.periodo_inicio, '%d-%m-%Y') as periodo_inicio, DATE_FORMAT(s.periodo_fin, '%d-%m-%Y') as periodo_fin, s.no_inicio,s.no_fin,
 											 v.nombre as vendedor,
-											 cl.nit, cl.nombre, cl.telefono,cl.direccion,
+											 cl.ruc, cl.nombre, cl.telefono,cl.direccion,
 											 tp.id_tipopago,
 											 tp.tipo_pago
 											FROM factura f

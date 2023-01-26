@@ -14,38 +14,39 @@
 if(!empty($_POST))
 	{
 		$alert='';
-		if(empty($_POST['nombre']) || empty($_POST['telefono']) || empty($_POST['direccion']))
+		if(empty($_POST['nombre']) || empty($_POST['ruc']))
 		{
-			$alert='<p class="msg_error">Todos los campos son obligatorios.</p>';
+			$alert='<p class="msg_error">Los campos de nombre y ruc son obligatorios.</p>';
 		}else{
 
 			$idCliente  = intval($_POST['id']);
-			$nit        = strClean($_POST['nit']);
+			$ruc        = strClean($_POST['ruc']);
 			$nombre     = ucwords(strClean($_POST['nombre']));
 			$telefono   = intval($_POST['telefono']);
+			$celular   = intval($_POST['celular']);
 			$correo  	= strtolower(strClean($_POST['correo']));
 			$direccion  = strClean($_POST['direccion']);
 
 			$result = 0;
-			if($nit != 'CF' || $nit != 'cf')
+			if($ruc != 'CF' || $ruc != 'cf')
 			{
 				$query = mysqli_query($conection,"SELECT * FROM cliente
-													WHERE (nit = '$nit' AND idcliente != $idCliente) OR (correo = '$correo' AND idcliente != $idCliente)
+													WHERE (ruc = '$ruc' AND idcliente != $idCliente) OR (correo = '$correo' AND idcliente != $idCliente)
 													");
 				$result = mysqli_num_rows($query);
 			}
 
 			if($result > 0){
-				$alert='<p class="msg_error">El nit o el email ya existe, ingrese otro.</p>';
+				$alert='<p class="msg_error">El ruc o el email ya existe, ingrese otro.</p>';
 			}else{
 
-				if($nit == '')
+				if($ruc == '')
 				{
-					$nit = 0;
+					$ruc = 0;
 				}
 
 				$sql_update = mysqli_query($conection,"UPDATE cliente
-															SET nit = '$nit', nombre='$nombre',telefono='$telefono',correo='$correo',direccion='$direccion'
+															SET ruc = '$ruc', nombre='$nombre',telefono='$telefono',celular='$celular',correo='$correo',direccion='$direccion'
 															WHERE idcliente= $idCliente ");
 
 				if($sql_update){
@@ -75,9 +76,10 @@ if(!empty($_POST))
 		while ($data = mysqli_fetch_array($sql)) {
 			# code...
 			$idcliente   = $data['idcliente'];
-			$nit         = $data['nit'];
+			$ruc         = $data['ruc'];
 			$nombre      = $data['nombre'];
 			$telefono    = $data['telefono'];
+			$celular    = $data['celular'];
 			$correo    	 = $data['correo'];
 			$direccion   = $data['direccion'];
 		}
@@ -97,16 +99,18 @@ if(!empty($_POST))
 					<p>Los campos con (*) son obligatorios.</p>
 				</div>
 				<input type="hidden" name="id" value="<?php echo $idcliente; ?>">
-				<label for="nit"><th><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?></th></label>
-				<input type="text" name="nit" id="nit" placeholder="Identificación tributaria" value="<?php echo $nit; ?>" required>
+				<label for="ruc"><th><?= strtoupper(IDENTIFICACION_TRIBUTARIA); ?> (*)</th></label>
+				<input type="text" name="ruc" id="ruc" placeholder="Identificación tributaria" value="<?php echo $ruc; ?>" required>
 				<label for="nombre">Nombre (*)</label>
 				<input type="text" name="nombre" id="nombre" placeholder="Nombre completo" value="<?php echo $nombre; ?>"  required>
-				<label for="telefono">Teléfono (*)</label>
-				<input type="number" name="telefono" id="telefono" placeholder="Teléfono" value="<?php echo $telefono; ?>" required>
-				<label for="telefono">Correo electrónico</label>
+				<label for="telefono">Teléfono</label>
+				<input type="text" name="telefono" id="telefono" placeholder="Teléfono" value="<?php echo $telefono; ?>">
+				<label for="celular">Celular</label>
+				<input type="text" name="celular" id="celular" placeholder="Celular" value="<?php echo $celular; ?>">
+				<label for="correo">Correo electrónico</label>
 				<input type="email" name="correo" id="correo" placeholder="Correo electrónico" value="<?php echo $correo; ?>" >
-				<label for="direccion">Dirección (*)</label>
-				<input type="text" name="direccion" id="direccion" placeholder="Dirección completa" value="<?php echo $direccion; ?>" required>
+				<label for="direccion">Dirección</label>
+				<input type="text" name="direccion" id="direccion" placeholder="Dirección completa" value="<?php echo $direccion; ?>">
 				<button type="submit" class="btn_save"><i class="far fa-edit"></i> Actualizar Cliente</button>
 			</form>
 		</div>

@@ -93,7 +93,7 @@
 	</head>
 	<body>
 		<div class="x_sgwrap x_title_blue">
-			<p><?= NOMBRE_EMPESA; ?></p>
+			<p><?= NOMBRE_EMPRESA; ?></p>
 		</div>
 		<br>
 		<table align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff" style="text-align:center; width: 500px;">

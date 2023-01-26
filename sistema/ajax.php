@@ -5,6 +5,7 @@
 	include "../conexion.php";
 	include "includes/functions.php";
 	include "includes/config.php";
+	//include "includes/xml.php";
 	session_start();
 	//print_r($_POST);exit;
 	if(!empty($_POST))
@@ -291,10 +292,10 @@
 		if($_POST['action'] == 'searchCliente')
 		{
 			if(!empty($_POST['cliente'])){
-				$nit = $_POST['cliente'];
+				$ruc = $_POST['cliente'];
 
 
-				$query = mysqli_query($conection,"SELECT * FROM cliente WHERE nit LIKE '$nit' and estatus = 1 ");
+				$query = mysqli_query($conection,"SELECT * FROM cliente WHERE ruc LIKE '$ruc' and estatus = 1 ");
 				mysqli_close($conection);
 				$result = mysqli_num_rows($query);
 
@@ -312,7 +313,7 @@
 		// Registrar Cliente
 		if($_POST['action'] == 'addCliente'){
 
-			$nit       = $_POST['nit_cliente'];
+			$ruc       = $_POST['ruc_cliente'];
 			$nombre    = $_POST['nom_cliente'];
 			$telefono  = $_POST['tel_cliente'];
 			$celular  = $_POST['cel_cliente'];
@@ -320,8 +321,8 @@
 			$direccion = $_POST['dir_cliente'];
 			$usuario_id = $_SESSION['idUser'];
 
-			$query_insert = mysqli_query($conection,"INSERT INTO cliente(nit,nombre,telefono,celular,correo,direccion,usuario_id)
-														VALUES('$nit','$nombre','$telefono','$celular','$correo','$direccion','$usuario_id')");
+			$query_insert = mysqli_query($conection,"INSERT INTO cliente(ruc,nombre,telefono,celular,correo,direccion,usuario_id)
+														VALUES('$ruc','$nombre','$telefono','$celular','$correo','$direccion','$usuario_id')");
 
 			if($query_insert){
 				$codCliente = mysqli_insert_id($conection);
@@ -1233,14 +1234,14 @@
 				}
 
 				$query = mysqli_query($conection,"SELECT * FROM detalle_temp WHERE token_user = '$token' ");
-				$result = mysqli_num_rows($query);
 
+				$result = mysqli_num_rows($query);
+				//echo $result;
 				if($result > 0)
 				{
 					$query_procesar = mysqli_query($conection,"CALL procesar_venta($usuario,$codcliente,'$token',$tipoPago,$efectivo,$descuento,'$fecha',$idserie,$noFacturaSerie)");
 					$result_detalle = mysqli_num_rows($query_procesar);
 					if($result_detalle > 0){
-
 						$data	= mysqli_fetch_assoc($query_procesar);
 						$venta_c = "venta_".$data["nofactura"];
 						$idCliente = "cliente_".$data["codcliente"];
@@ -1249,6 +1250,18 @@
 						$data["status"] = true;
 						$data["nofactura"] = $idventacript;
 						$data["codcliente"] = $idclientecipt;
+						
+						if($result=mysqli_store_result($conection)){
+							mysqli_free_result($result);
+						} while(mysqli_more_results($conection) && mysqli_next_result($conection));
+
+						//Extraemos datos de empresa
+						$xquery_ml = mysqli_query($conection,"SELECT * FROM configuracion WHERE 1");
+						$dataxml = mysqli_fetch_assoc($xquery_ml);
+						//Extraemos datos de empresa
+						//$xquery_ml = mysqli_query($conection,"SELECT * FROM cliente WHERE 1");
+						//$dataxml = mysqli_fetch_assoc($xquery_ml);
+						GenerarXML($dataxml,$data,$infoFAc,$infoSerie);
 						echo json_encode($data,JSON_UNESCAPED_UNICODE);
 						exit;
 					}else{
@@ -1585,13 +1598,13 @@
 		{
 			if($_SESSION['active'] and $_SESSION['rol'] == 1)
 			{
-				if(empty($_POST['txtNit']) || empty($_POST['txtNombre']) || empty($_POST['txtRSocial']) || empty($_POST['txtTelEmpresa']) || empty($_POST['txtEmailEmpresa']) || empty($_POST['txtEmailRemitente']) || empty($_POST['txtDirEmpresa']) || empty($_POST['txtImpuesto']) || empty($_POST['txtMoneda']) || empty($_POST['txtSimbolo']) || empty($_POST['txtZonaHoraria']) || empty($_POST['txtIdentificacionCliente']) || empty($_POST['txtIdentificacionTributaria']) || empty($_POST['txtSeparadorMillares']) || empty($_POST['txtSeparadorDecimales']))
+				if(empty($_POST['txtRuc']) || empty($_POST['txtNombre']) || empty($_POST['txtRSocial']) || empty($_POST['txtTelEmpresa']) || empty($_POST['txtEmailEmpresa']) || empty($_POST['txtEmailRemitente']) || empty($_POST['txtDirEmpresa']) || empty($_POST['txtImpuesto']) || empty($_POST['txtMoneda']) || empty($_POST['txtSimbolo']) || empty($_POST['txtZonaHoraria']) || empty($_POST['txtIdentificacionCliente']) || empty($_POST['txtIdentificacionTributaria']) || empty($_POST['txtSeparadorMillares']) || empty($_POST['txtSeparadorDecimales']))
 				{
 					$code = '1';
 					$msg = "Todos los campos son obligatorios.";
 				}else{
 
-					$intNit 	= intval($_POST['txtNit']);
+					$intRuc 	= intval($_POST['txtRuc']);
 					$strNombre 	= $_POST['txtNombre'];
 					$strRSocial = $_POST['txtRSocial'];
 					$intTel 	= intval($_POST['txtTelEmpresa']);
@@ -1612,7 +1625,7 @@
 					$facebook = $_POST['txtFacebook'];
 					$instagram = $_POST['txtInstagram'];
 
-					$queryUpd = mysqli_query($conection,"UPDATE configuracion SET nit 	= $intNit,
+					$queryUpd = mysqli_query($conection,"UPDATE configuracion SET ruc 	= $intRuc,
 																			nombre	= '$strNombre',
 																			razon_social='$strRSocial',
 																			telefono = $intTel,
@@ -1702,7 +1715,7 @@
 				if(!empty($_POST['idProveedor'])){
 					$idProveedor = intval($_POST['idProveedor']);
 
-					$queryProveedor= mysqli_query($conection,"SELECT codproveedor,nit,proveedor,contacto,telefono,correo,direccion, DATE_FORMAT(date_add, '%d/%m/%Y') as fecha FROM proveedor WHERE codproveedor= $idProveedor and estatus !=10 ");
+					$queryProveedor= mysqli_query($conection,"SELECT codproveedor,ruc,proveedor,contacto,telefono,correo,direccion, DATE_FORMAT(date_add, '%d/%m/%Y') as fecha FROM proveedor WHERE codproveedor= $idProveedor and estatus !=10 ");
 					mysqli_close($conection);
 
 					$result = mysqli_num_rows($queryProveedor);
@@ -3716,7 +3729,7 @@
 		//Enviar Pedido
 		if($_POST['action'] == 'sendPedido'){
 
-			if(empty($_POST['nombre_cliente']) || empty($_POST['tel_cliente']) || empty($_POST['email_cliente']) || empty($_POST['nit']) || empty($_POST['nombrefiscal']) || empty($_POST['direccion']) || empty($_SESSION['arrProductos']))
+			if(empty($_POST['nombre_cliente']) || empty($_POST['tel_cliente']) || empty($_POST['email_cliente']) || empty($_POST['ruc']) || empty($_POST['nombrefiscal']) || empty($_POST['direccion']) || empty($_SESSION['arrProductos']))
 			{
 				echo "errorData";exit;
 			}
@@ -3724,7 +3737,7 @@
 			$strNombre = strClean($_POST['nombre_cliente']);
 			$intTelefono = strClean($_POST['tel_cliente']);
 			$strEmail = strClean($_POST['email_cliente']);
-			$strNit = strClean($_POST['nit']);
+			$strRuc = strClean($_POST['ruc']);
 			$strNombreFiscal = strClean($_POST['nombrefiscal']);
 			$strDireccion = strClean($_POST['direccion']);
 			$intTipoPago = strClean($_POST['tipopago']);
@@ -3736,13 +3749,13 @@
 														contacto_pedido(nombre,
 																telefono,
 																email,
-																nit,
+																ruc,
 																nombre_fiscal,
 																direccion)
 												 	VALUES('$strNombre',
 												 	 		$intTelefono,
 												 	 		'$strEmail',
-												 	 		'$strNit',
+												 	 		'$strRuc',
 												 	 		'$strNombreFiscal',
 												 	 		'$strDireccion')"
 										);

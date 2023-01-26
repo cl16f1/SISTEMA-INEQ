@@ -286,7 +286,7 @@ $(document).ready(function(){
 
 // ------------------------ Generar Venta -------------------------
     //Buscar Cliente
-    $('#nit_cliente').keyup(function(e) {
+    $('#ruc_cliente').keyup(function(e) {
         e.preventDefault();
         /* Act on the event */
         var cl = $(this).val();
@@ -755,7 +755,6 @@ $(document).ready(function(){
     // Facturar venta
     $('#btn_facturar_venta').click(function(e){
         e.preventDefault();
-
         if($('#detalle_venta tr').length > 0)
         {
             var action = 'procesarPago';
@@ -791,11 +790,13 @@ $(document).ready(function(){
                 },
                 success: function(response)
                 {
-
+                    console.log(response);
                     try {
                         var info = JSON.parse(response);
+                        console.log(info);
                         if(info.status)
                         {
+                            console.log(info.status);
                             generarTicket(info.codcliente,info.nofactura);
                             location.reload();
                         }else{
@@ -1135,7 +1136,7 @@ $(document).ready(function(){
     $('#frmEmpresa').submit(function(e){
         e.preventDefault();
 
-        var intNit         = $('#txtNit').val();
+        var intRuc         = $('#txtRuc').val();
         var strNombreEmp   = $('#txtNombre').val();
         var intTelEmp      = $('#txtTelEmpresa').val();
         var strEmailEmp    = $('#txtEmailEmpresa').val();
@@ -1148,7 +1149,7 @@ $(document).ready(function(){
         var identificacion = $('#txtIdentificacionCliente').val();
         var idTributaria = $('#txtIdentificacionTributaria').val();
 
-        if(intNit == '' || strNombreEmp == '' || intTelEmp == '' || strEmailEmp == '' || strEmailRemt == '' || strDirEmp == '' || strImpuesto == '' || strMoneda == '' || strSimbolo == '' || txtZonaHoraria == '' || identificacion == '' || idTributaria == ''){
+        if(intRuc == '' || strNombreEmp == '' || intTelEmp == '' || strEmailEmp == '' || strEmailRemt == '' || strDirEmp == '' || strImpuesto == '' || strMoneda == '' || strSimbolo == '' || txtZonaHoraria == '' || identificacion == '' || idTributaria == ''){
             $('.alertFormEmrpresa').html('<p>Todos los campos son obligatorios.</p>');
             $('.alertFormEmrpresa').slideDown();
             return false;
@@ -1229,7 +1230,7 @@ $(document).ready(function(){
                         '<h1><i class="fas fa-user" style="font-size: 30pt;"></i><br><br>Datos del cliente</h1><br>'+
 
                         '<table class="tblModal"><tbody>'+
-                                '<tr><td class="textright">Identificación tributaria</td><td class="textleft"><strong>'+info.nit+'</strong></td></tr>'+
+                                '<tr><td class="textright">Identificación tributaria</td><td class="textleft"><strong>'+info.ruc+'</strong></td></tr>'+
                                 '<tr><td class="textright">Nombre</td><td class="textleft"><strong>'+info.nombre+'</strong></td></tr>'+
                                 '<tr><td class="textright">Teléfono</td><td class="textleft"><strong>'+info.telefono+'</strong></td></tr>'+
                                 '<tr><td class="textright">Correo</td><td class="textleft"><strong>'+info.correo+'</strong></td></tr>'+
@@ -1275,7 +1276,7 @@ $(document).ready(function(){
                         '<h1><i class="fas fa-truck" style="font-size: 40pt;"></i><br><br>Datos del proveedor</h1><br>'+
 
                         '<table class="tblModal"><tbody>'+
-                                '<tr><td class="textright">Identificación tributaria:</td><td class="textleft"><strong>'+info.nit+'</strong></td></tr>'+
+                                '<tr><td class="textright">Identificación tributaria:</td><td class="textleft"><strong>'+info.ruc+'</strong></td></tr>'+
                                 '<tr><td class="textright">Proveedor</td><td class="textleft"><strong>'+info.proveedor+'</strong></td></tr>'+
                                 '<tr><td class="textright">Contacto</td><td class="textleft"><strong>'+info.contacto+'</strong></td></tr>'+
                                 '<tr><td class="textright">Teléfono</td><td class="textleft"><strong>'+info.telefono+'</strong></td></tr>'+

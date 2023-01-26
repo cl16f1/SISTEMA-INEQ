@@ -28,7 +28,7 @@
                                                          f.codcliente,
                                                          f.estatus,
                                                          u.nombre as vendedor,
-                                                         cl.nit,
+                                                         cl.ruc,
                                                          cl.nombre as cliente,
                                                          tp.tipo_pago,
                                                          s.prefijo,s.ceros
@@ -84,7 +84,7 @@
                 <td <?php echo $style_row_data;  ?> > <?php echo $i;  ?> </td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data["prefijo"].'-'.formatFactura($data["factura_serie"],$data["ceros"]); ?></td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data['fecha'];  ?> </td>
-                <td <?php echo $style_center;  ?> > <?php echo $data['nit'];  ?> </td>
+                <td <?php echo $style_center;  ?> > <?php echo $data['ruc'];  ?> </td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data['cliente'];  ?> </td>
                 <td <?php echo $style_row_data;  ?> > <?php echo $data['vendedor'];  ?> </td>
                 <td <?php echo $style_center;  ?> > <?php echo $data['tipo_pago'];  ?> </td>

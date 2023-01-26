@@ -37,7 +37,7 @@
 		if($result > 0){
 			while ($data = mysqli_fetch_array($query)) {
 				# code...
-				$nit    = $data['nit'];
+				$ruc    = $data['ruc'];
 				$nombre = $data['nombre'];
 			}
 		}else{
@@ -61,7 +61,7 @@
 			<br><br>
 			<h2>¿Está seguro de eliminar el siguiente registro?</h2>
 			<p>Nombre del Cliente: <span><?php echo $nombre; ?></span></p>
-			<p>Nit: <span><?php echo $nit; ?></span></p>
+			<p>Ruc: <span><?php echo $ruc; ?></span></p>
 
 			<form method="post" action="">
 				<input type="hidden" name="idcliente" value="<?php echo $idcliente; ?>">

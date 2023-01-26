@@ -25,7 +25,7 @@
 		</div>
 	</footer>
 	<div class="copy">
-		<p>© <?= NOMBRE_EMPESA.' - '.date('Y'); ?></p>
+		<p>© <?= NOMBRE_EMPRESA.' - '.date('Y'); ?></p>
 	</div>
 	<!-- <script type="text/javascript" src="sistema/js/jquery.min.js"></script>
 	<script type="text/javascript" src="sistema/js/icons.js"></script>

@@ -23,7 +23,7 @@
 	$total_paginas = ceil($total_registro / $por_pagina);
 
 	$query = mysqli_query($conection,"SELECT codproveedor,
-												nit,
+												ruc,
 												proveedor,
     											contacto,
     											telefono,
@@ -80,7 +80,7 @@
 			?>
 				<tr id="item_<?php echo $data["codproveedor"]; ?>">
 					<td><?php echo $data["codproveedor"]; ?></td>
-					<td><?php echo $data["nit"]; ?></td>
+					<td><?php echo $data["ruc"]; ?></td>
 					<td><?php echo $data["proveedor"]; ?></td>
 					<td><?php echo $data["contacto"]; ?></td>
 					<td><?php echo $data["telefono"]; ?></td>

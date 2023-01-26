@@ -24,7 +24,7 @@
 		//Buscar Por cliente
 		$querySerchCliente = mysqli_query($conection,"SELECT idcliente
 												FROM cliente
-												WHERE (nit LIKE '%$busqueda%') AND estatus != 10
+												WHERE (ruc LIKE '%$busqueda%') AND estatus != 10
 												ORDER BY nombre DESC ");
 		$resultSearchCliente = mysqli_num_rows($querySerchCliente);
 		if($resultSearchCliente > 0){
@@ -99,7 +99,7 @@
 
 	$queryExport = "SELECT f.nofactura,f.factura_serie,DATE_FORMAT(f.fecha, '%d/%m/%Y') as fecha,f.totalfactura,f.codcliente,f.estatus,
 											 u.nombre as vendedor,
-											 cl.nit,
+											 cl.ruc,
 											 cl.nombre as cliente,
 											 tp.tipo_pago
 										FROM factura f
@@ -114,7 +114,7 @@
 
 	$query_venta = "SELECT f.nofactura,f.factura_serie,DATE_FORMAT(f.fecha, '%d/%m/%Y') as fecha, DATE_FORMAT(f.dateadd,'%H:%i:%s') as  hora,f.totalfactura,f.codcliente,f.estatus,
 											 u.nombre as vendedor,
-											 cl.nit,
+											 cl.ruc,
 											 cl.nombre as cliente,
 											 cl.correo,
 											 tp.tipo_pago
@@ -202,7 +202,7 @@
 					<td><?php echo $data["nofactura"]; ?></td>
 					<td><?php echo formatFactura($data["factura_serie"]); ?></td>
 					<td><?php echo $data["fecha"].' - '.$data["hora"]; ?></td>
-					<td><?php echo $data["nit"]; ?></td>
+					<td><?php echo $data["ruc"]; ?></td>
 					<td><?php echo $data["cliente"]; ?></td>
 					<td><?php echo $data["vendedor"]; ?></td>
 					<td class="estado textcenter"><?php echo $estado; ?></td>

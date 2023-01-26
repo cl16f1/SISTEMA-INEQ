@@ -59,8 +59,8 @@
 			                	<h3>DATOS DE PEDIDO</h3>
 			                </div>
 			                <div class="wd30">
-			                    <label for="nit"><?= IDENTIFICACION_TRIBUTARIA; ?></label>
-			                    <input type="text" id="nit" name="nit" value="" required>
+			                    <label for="ruc"><?= IDENTIFICACION_TRIBUTARIA; ?></label>
+			                    <input type="text" id="ruc" name="ruc" value="" required>
 			                </div>
 			                <div class="wd60">
 			                    <label for="nombrefiscal">Nombre fiscal</label>

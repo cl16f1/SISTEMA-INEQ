@@ -112,7 +112,7 @@
 			<td width="100" style="text-align: right;"><label>Teléfono:</label></td>
 			<td width="120" style="text-align: left;"><p><?php echo $compra['telefono']; ?></p></td>
 			<td width="50" style="text-align: right;"><label><?= IDENTIFICACION_TRIBUTARIA ?>:</label></td>
-			<td width="110" style="text-align: left;"><p><?php echo $compra['nit']; ?></p></td>
+			<td width="110" style="text-align: left;"><p><?php echo $compra['ruc']; ?></p></td>
 		</tr>
 		<tr>
 			<td style="text-align: right;"><label>Dirección:</label></td>
